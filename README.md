@@ -1,2 +1,3 @@
 # site-concessionaria
-SITE DE UMA CONCESSIONÁRIA - HTML E CSS
+Site de vendas de uma concessionária.
+O projeto visa explorar funcionalidades do HTML e CSS e não tem fins lucrativos
