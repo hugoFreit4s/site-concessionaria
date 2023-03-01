@@ -61,6 +61,7 @@ ul {
 .main-li{
     font-weight: 700;
     font-size: 30px;
+    transition: 0.2s ease-out;
 }
 
 li {
@@ -84,8 +85,9 @@ li a {
 
 .main-li:hover,
 .main-li:focus-within {
+    border-top: 2px solid red;
     box-shadow: -5px 0px 10px black;
-    text-shadow: -5px 5px 15px black;
+    text-shadow: 0px 10px 15px black;
     width: 180px;
     height: 40px;
     background-color: rgba(79, 123, 216, 0.712);
@@ -98,7 +100,7 @@ li a {
 
 ul li ul {
     box-shadow: -5px 10px 10px black;
-    width: 180px;
+    width: 210px;
     visibility: hidden;
     opacity: 0;
     min-width: 5rem;
@@ -108,39 +110,92 @@ ul li ul {
     left: 0;
     display: none;
 }
-ul li ul:hover{
-    text-shadow: -5px 10px 15px black;
+
+ul li ul::before, ul li ul::after{ 
+    content: ""; 
+    display: block; 
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 5;
+    pointer-events: none; 
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border: 2px solid red
+}
+
+ul li ul::before {
+    border-left: none;
+    border-top: none;
+    left: 0;
+    bottom: 0;
+    transition: width 0.5s
+}
+ul li ul::after {
+    border-top: none; 
+    border-right: none; 
+    right: 0;
+    bottom: 0;
+    transition: width 0.5s;
+}
+ul li ul:hover::before, a:hover::after{ 
+    width: 100%;
+    opacity: 1; 
+    text-shadow: 0px 10px 10px black;
+}
+
+ul li ul:hover::before{
+    transition: width 0.5s
+}
+ul li ul:hover::after{
+    transition: width 0.5s
 }
 
 ul li:hover>ul,
 ul li:focus-within>ul,
 ul li ul:hover,
-ul li ul:focus {
+ul li ul:focus{
     visibility: visible;
     opacity: 1;
     display: block;
 }
 
-ul li ul li {
+ul li ul li{
     clear: both;
-    width: 100%;
+}
+
+#sub-li1{
+    transition: 0.1s ease-out;
+}
+#sub-li2{
+    transition: 0.1s ease-out;
+}
+#sub-li3{
+    transition: 0.1s ease-out;
+}
+#sub-li4{
+    transition: 0.1s ease-out;
 }
 
 #sub-li1:hover{
+    font-size: 23px;
     font-weight: 700;
-    transition: 0s ease-in-out;
+    transition: 0.1s ease-in;
 }
 #sub-li2:hover{
+    font-size: 23px;
     font-weight: 700;
-    transition: 0s ease-out;
+    transition: 0.1s ease-in;
 }
 #sub-li3:hover{
+    font-size: 23px;
     font-weight: 700;
-    transition: 0s ease-out;
+    transition: 0.1s ease-in;
 }
 #sub-li4:hover{
+    font-size: 23px;
     font-weight: 700;
-    transition: 0s ease-out;
+    transition: 0.1s ease-in;
 }
 
 .know-more-btn{
@@ -153,12 +208,12 @@ ul li ul li {
     border: none;
 }
 .know-more-btn:hover{
-    box-shadow: -5px 10px 10px black;
-    text-shadow: -5px 5px 10px black;
+    box-shadow: -2px 3px 10px black;
+    text-shadow: -2px 0px 10px black;
     background-color: rgba(10, 122, 216, 0.89);
 }
 .know-more{
-    margin-left: 560px;
+    margin-left: 561px;
     margin-top: 28%;
     float: right;
 }
@@ -170,7 +225,7 @@ ul li ul li {
     margin-top: 10px;
 }
 .left-menu {
-    height: 471.5px;
+    height: auto;
     width: 20%;
     background-color: white;
     float: left;
@@ -222,5 +277,62 @@ input#search-bar{
     height: 471.5px;
 }
 
-
-/* ALTERAÇÕES DA ÁREA DE MENU ESQUERDO E CONTEÚDO DA PÁGINA - INÍCIO */
+.titles{
+    display: grid;
+    place-items: center;
+    font-family: arial;
+    font-size: 60px;
+    color: rgba(235, 67, 67, 0.774);
+    text-shadow: 0px 8px 15px black;
+}
+.models{
+    margin: 0;
+    padding: 0;
+}
+.slider {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+}
+.slider li {
+    margin-left: 160px;
+    width: 690px;
+    height: 530px;
+    list-style: none;
+    position: absolute;
+}
+.slider img {
+    margin: auto;
+    height: 500px;
+}
+.slider input{
+    display: none;
+}
+.slider label {
+    background-color: red;
+    bottom: 10px;
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    z-index: 10;
+}
+.slider li:nth-child(1) label {
+    left: 10px;
+}
+.slider li:nth-child(2) label {
+    left: 40px;
+}
+.slider li:nth-child(3) label {
+    left: 70px;
+}
+.slider img {
+    opacity: 0;
+}
+.slider li input:checked ~ img {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
