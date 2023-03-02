@@ -272,67 +272,26 @@ input#search-bar{
 }
 
 .main-content {
+    width: 80%;
+    display: grid;
+    place-items: center;
     margin-left: 270px;
     background-color: blue;
     height: 471.5px;
 }
 
-.titles{
+.myCarousel{
     display: grid;
-    place-items: center;
-    font-family: arial;
-    font-size: 60px;
-    color: rgba(235, 67, 67, 0.774);
-    text-shadow: 0px 8px 15px black;
+    width: 80%;
 }
-.models{
-    margin: 0;
-    padding: 0;
+
+.carousel-inner img{
+    margin-left: 80px;
+    height: 400px;
+    width: 80%;
 }
-.slider {
-    display: block;
-    margin: auto;
-    margin-top: 20px;
-    position: relative;
-}
-.slider li {
-    margin-left: 160px;
-    width: 690px;
-    height: 530px;
-    list-style: none;
-    position: absolute;
-}
-.slider img {
-    margin: auto;
-    height: 500px;
-}
-.slider input{
-    display: none;
-}
-.slider label {
-    background-color: red;
-    bottom: 10px;
-    cursor: pointer;
-    display: block;
-    height: 20px;
-    position: absolute;
-    width: 20px;
-    z-index: 10;
-}
-.slider li:nth-child(1) label {
-    left: 10px;
-}
-.slider li:nth-child(2) label {
-    left: 40px;
-}
-.slider li:nth-child(3) label {
-    left: 70px;
-}
-.slider img {
-    opacity: 0;
-}
-.slider li input:checked ~ img {
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
+
+.carousel-dark .carousel-control-prev-icon,
+.carousel-dark .carousel-control-next-icon {
+    background-color: black;
 }
